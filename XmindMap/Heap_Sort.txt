@@ -1,10 +1,20 @@
 # 堆排序
 
+# 堆排序
+void HeapSort(ElemType A[], int len) {
+	BuildMaxHeap(A,len);
+	for(i=len;i>1;i--) {
+		swap(A[i],A[1]);
+		AdjustDown(A,1,i-1);
+	}
+}
+
 # 建立大根堆
 void BuildMaxHeap(ElemType A[],int len) {
 	for (int i=len/2;i>0;i--) 
 		AdjustDown(A,i,len);
 }
+
 void AdjustDown(ElemType A[],int k,int len) {
 	A[0] = A[k];	//从1开始为数据，0做临时保存用
 	for (i=2*k;i<len;i*=2) {
@@ -16,15 +26,6 @@ void AdjustDown(ElemType A[],int k,int len) {
 		}
 	}
 	A[k]=A[0];
-}
-
-# 堆排序
-void HeapSort(ElemType A[], int len) {
-	BuildMaxHeap(A,len);
-	for(i=len;i>1;i--) {
-		swap(A[i],A[1]);
-		AdjustDown(A,1,i-1);
-	}
 }
 
 # 向上调整堆
